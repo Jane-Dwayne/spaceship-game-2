@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spaceship game</title>
+    <meta charset="utf-8">
+    <link href="src/spaceship.css" rel="stylesheet" type="text/css">
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
+<body>
+    <!-- Phaser and game scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+    <script type="module" src="src/index.js" charset="utf-8"></script>
+
+    <div class="form" id="mainSection">
+        <div id="signInForm">
+            <label for="userId">Enter your User ID:</label>
+            <input type="text" id="userId" name="userId">
+            <button type="button" id="signInButton">Enter</button>
+        </div>
+        <header class="form__header" id="header">
+            <h2 id="header_title" class="form__title"></h2>
+        </header>
+        <section class="mainInstructions" id="start">
+           
+        </section>
+    </div>
+
+</body>
+</html>
