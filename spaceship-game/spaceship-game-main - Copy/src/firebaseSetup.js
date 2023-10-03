@@ -7,6 +7,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyBYpXYRyIRdN8o0GyfVewSdUM2P3Q-tUb4",
   authDomain: "onlinetesting-42b6b.firebaseapp.com",
   databaseURL: "https://onlinetesting-42b6b-default-rtdb.firebaseio.com",
+  //databaseURL: "onlinetesting-42b6b.appspot.com",
   projectId: "onlinetesting-42b6b",
   storageBucket: "onlinetesting-42b6b.appspot.com",
   messagingSenderId: "303642679764",
