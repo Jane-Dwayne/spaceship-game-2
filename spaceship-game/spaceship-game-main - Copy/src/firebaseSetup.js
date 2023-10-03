@@ -80,5 +80,16 @@ signInButton.addEventListener("click", () => {
   }
 });
 
+const docRef = doc(db, 'onlinetesting-42b6b', game.studyID, 'userId', uid);
+setDoc(docRef, {
+    subjectID: game.subjectID,
+    date: new Date().toLocaleDateString(),
+    time: new Date().toLocaleTimeString(),
+    trial_data: [],
+    attention_checks: []
+}).catch(error => {
+    console.error("Error writing to Firestore: ", error);
+});
+
 // Export the uid and db variables
-export { uid, db };
+export { uid, auth, db };
