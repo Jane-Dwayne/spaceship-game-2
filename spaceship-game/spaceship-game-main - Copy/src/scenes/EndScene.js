@@ -59,3 +59,43 @@ class EndScene extends Phaser.Scene {
 }
 
 export default EndScene;
+
+String filename =  httpRequest.getFirstQueryParameter("name").get();
+    String contentType =  httpRequest.getFirstQueryParameter("content-type").get();
+
+    ClassLoader classLoader = getClass().getClassLoader();
+    File file = new File(classLoader.getResource("key.json").getFile());
+    FileInputStream serviceAccount = new FileInputStream(file);
+
+    FirebaseOptions options = new FirebaseOptions.Builder()
+            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+            .setStorageBucket("<you bucket name>")
+            .build();
+
+    FirebaseApp firebaseApp = FirebaseApp.initializeApp(options);
+    Bucket bucket = StorageClient.getInstance(firebaseApp).bucket();
+
+
+    Storage storage = StorageOptions.newBuilder().setProjectId("firebaseId")
+            .setCredentials(ServiceAccountCredentials.fromStream(new FileInputStream(file)))
+            .build()
+            .getService();
+    file = new File(classLoader.getResource("this.cache.game.data").getFile());
+
+    InputStream inputStream = new FileInputStream(file);
+    BlobInfo blobInfo = BlobInfo.newBuilder(bucket.getName(), filename)
+            .setContentType(contentType).build();
+try (WriteChannel writer = storage.writer(blobInfo)) {
+        byte[] buffer = new byte[1024];
+        int limit;
+        try {
+            while ((limit = inputStream.read(buffer)) >= 0) {
+                writer.write(ByteBuffer.wrap(buffer, 0, limit));
+            }
+
+        } catch (Exception ex) {
+            // handle exception
+        } finally {
+            writer.close();
+        }
+    }
