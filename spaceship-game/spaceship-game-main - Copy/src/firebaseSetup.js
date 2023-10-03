@@ -80,14 +80,14 @@ signInButton.addEventListener("click", () => {
   }
 });
 
-const docRef = doc(db, 'onlinetesting-42b6b', game.studyID, 'userId', uid);
-setDoc(docRef, {
-    subjectID: game.subjectID,
-    date: new Date().toLocaleDateString(),
-    time: new Date().toLocaleTimeString(),
-    trial_data: [],
-    attention_checks: []
-});
+//const docRef = doc(db, 'onlinetesting-42b6b', game.studyID, 'userId', uid);
+// setDoc(docRef, {
+//    subjectID: game.subjectID,
+//    date: new Date().toLocaleDateString(),
+//    time: new Date().toLocaleTimeString(),
+//    trial_data: [],
+//    attention_checks: []
+// });
 
 // Export the uid and db variables
 export { uid, db };
