@@ -87,9 +87,7 @@ setDoc(docRef, {
     time: new Date().toLocaleTimeString(),
     trial_data: [],
     attention_checks: []
-}).catch(error => {
-    console.error("Error writing to Firestore: ", error);
 });
 
 // Export the uid and db variables
-export { uid, auth, db };
+export { uid, db };
